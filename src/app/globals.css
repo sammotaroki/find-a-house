@@ -8,6 +8,26 @@ body,
     height: 100%
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #41644A;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #1b1919;
+}
+
 .leaflet-bottom,
 .leaflet.control,
 .leaflet.pane,
