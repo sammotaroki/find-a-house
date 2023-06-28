@@ -4,11 +4,11 @@ import Select from 'react-select'
 import React from 'react'
 
 export type CountrySelectValue = {
-    flag: string,
-    label: string,
-    latlng: number[],
-    region: string,
-    value: string
+    flag: string;
+    label: string;
+    latlng: number[];
+    region: string;
+    value: string;
 }
 
 interface CountrySelectProps {
@@ -20,34 +20,37 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
     value, onChange
 }) => {
     const { getAll } = useCountries()
+
     return (
-        <Select placeholder='Anywhere' options={getAll()} isClearable
-            value={value}
-            onChange={(value) => onChange(value as CountrySelectValue)}
-            formatOptionLabel={(option: any) => (
-                <div className='flex flex-row items-center gap-3'>
-                    <div>{option.flag}</div>
-                    <div>
-                        {option.label},
-                        <span className='text-neutral-500 ml-1'>{option.region}</span>
+        <div>
+            <Select placeholder='Anywhere' options={getAll()} isClearable className='z-10'
+                value={value}
+                onChange={(value) => onChange(value as CountrySelectValue)}
+                formatOptionLabel={(option: any) => (
+                    <div className='flex flex-row items-center gap-3'>
+                        <div>{option.flag}</div>
+                        <div>
+                            {option.label},
+                            <span className='text-neutral-400 ml-1'>{option.region}</span>
+                        </div>
                     </div>
-                </div>
-            )}
-            classNames={{
-                control: () => 'p-3 border-2',
-                input: () => 'text-lg',
-                option: () => 'text-lg'
-            }}
-            theme={(theme) => ({
-                ...theme,
-                borderRadius: 6,
-                colors: {
-                    ...theme.colors,
-                    primary: '#41644A',
-                    primary25: '#D9F8C4'
-                }
-            })}
-        />
+                )}
+                classNames={{
+                    control: () => 'p-3 border-2',
+                    input: () => 'text-lg',
+                    option: () => 'text-lg'
+                }}
+                theme={(theme) => ({
+                    ...theme,
+                    borderRadius: 6,
+                    colors: {
+                        ...theme.colors,
+                        primary: '#41644A',
+                        primary25: '#D9F8C4'
+                    }
+                })}
+            />
+        </div>
     )
 }
 
